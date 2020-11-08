@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Marry me</title>
+</head>
+<body style="text-align:center;">
+
+
+
+<script type="text/javascript">
+
+var a="<img draggable='false' id='box' src='image/";
+var b=".jpg' width='500' height='716' alt='' align='absmiddle'/>";
+
+for(var i=1;i<40;i++)
+ {   
+document.write(a+i+b+"<br>");
+  }
+</script>  
+
+
+<script type="text/javascript">
+
+
+
+// 禁止右键菜单
+document.oncontextmenu = function(){ return false; };
+// 禁止文字选择
+document.onselectstart = function(){ return false; };
+// 禁止复制
+document.oncopy = function(){ return false; };
+// 禁止剪切
+document.oncut = function(){ return false; };
+// 禁止粘贴
+document.onpaste = function(){ return false; };
+document.onkeypress = new Function("return false");
+</script>
+
+<script>
+    /*function check(e)
+    {
+    alert(e.keyCode);
+    }*/
+    document.onkeydown = function(e) {
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) {//Alt+c, Alt+v will also be disabled sadly.
+                alert('这个页面无法复制');
+            }
+            return false;
+    };
+
+    </script>
+
+
+</body>
+</html>
