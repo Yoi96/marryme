@@ -1,1 +1,4 @@
 theme: jekyll-theme-slate
+it filter-branch --force --index-filter \
+  "git rm --cached --ignore-unmatch ./image" \
+  --prune-empty --tag-name-filter cat -- --all
