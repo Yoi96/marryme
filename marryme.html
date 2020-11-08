@@ -5,22 +5,25 @@
 </head>
 <body style="text-align:center;">
 
-
+<input type="password" id="pwd"/>
+<input type="button" value="输入密码后点击" onclick="login()"/>
 
 <script type="text/javascript">
+function login()
+{
+var pwd=document.getElementById("pwd").value;
+
+if(pwd=="Cale")
+{
 
 var a="<img draggable='false' id='box' src='image/";
 var b=".jpg' width='500' height='716' alt='' align='absmiddle'/>";
 
 for(var i=1;i<40;i++)
  {   
-document.write(a+i+b+"<br>");
+    document.write(a+i+b+"<br>");
   }
-</script>  
-
-
-<script type="text/javascript">
-
+}
 
 
 // 禁止右键菜单
@@ -34,21 +37,29 @@ document.oncut = function(){ return false; };
 // 禁止粘贴
 document.onpaste = function(){ return false; };
 document.onkeypress = new Function("return false");
-</script>
 
-<script>
+
+
     /*function check(e)
     {
     alert(e.keyCode);
     }*/
     document.onkeydown = function(e) {
             if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) {//Alt+c, Alt+v will also be disabled sadly.
-              
+                
             }
             return false;
     };
 
-    </script>
+   
+
+
+}
+</script>  
+
+
+
+
 
 
 </body>
