@@ -123,7 +123,31 @@ document.onkeydown = function(e) {
 this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
 </script>
 
+<style>@media print{body{display:none}}</style>
+<%--禁止截屏，通过清除剪切板实现 Start--%>
+<script type="text/javascript">
+function clearShearPlate() {
+try {
+if (clipboardData.getData("Text") || clipboardData.getData("HTML") || clipboardData.getData("URL")) {
+null;
+clipboardData.setData("Text", "");
+}
+}
+catch (e) {
+clipboardData.setData("Text", "")
+}
+setTimeout("clearShearPlate()", 500)
+}
+clearShearPlate();
+</script>
+<%--禁止截屏，通过清除剪切板实现 End--%>
 
+<%--禁止复制 禁止右键菜单 --%>
+<body oncopy="return false;" oncontextmenu="return false">
+
+<%--禁止网页另存为 Start--%>
+<noscript><iframe src=*.html></iframe></noscript>
+<%--禁止网页另存为 End--%>
 
 </body>
 </html>
