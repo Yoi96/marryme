@@ -7,7 +7,189 @@
 
 <input type="password" id="pwd"/>
 <input type="button" value="输入密码后点击" onclick="login()"/>
+<script type="text/javascript">
+$(document).ready(function () {
+	function fixHeight() {
+		var headerHeight = $("#switcher").height();
+		if($(window).width() < 870){//判断页面宽度，手机版的时候则全部内容
+			$("#iframe").attr("height", $(window).height()+ "px");
+			//$("#by").attr("style", "height:"+$(window).height()+ "px");
+		}else{
+			$("#iframe").attr("height", $(window).height()-54+ "px");
+		}
+	}
+	$(window).resize(function () {
+		fixHeight();
+	}).resize();
 
+	$('.icon-pc').addClass('active');
+
+	$(".icon-mobile").click(function () {
+		$("#by").css("overflow-y", "auto");
+		$('#iframe-wrap').removeClass().addClass('mobile-width');
+		$('.icon-ipad,.icon-pc,.icon-mobile').removeClass('active');
+		$(this).addClass('active');
+		return false;
+	});
+
+
+	$(".icon-ipad").click(function () {
+		$("#by").css("overflow-y", "auto");
+		$('#iframe-wrap').removeClass().addClass('ipad-width');
+		$('.icon-ipad,.icon-pc,.icon-mobile').removeClass('active');
+		$(this).addClass('active');
+		return false;
+	});
+
+	$(".icon-pc").click(function () {
+		$("#by").css("overflow-y", "hidden");
+		$('#iframe-wrap').removeClass().addClass('full-width');
+		$('.icon-ipad,.icon-pc,.icon-mobile').removeClass('active');
+		$(this).addClass('active');
+		return false;
+	});
+});
+</script>
+<script type="text/javascript">
+function Responsive() {
+	if ( == true) $("#equipment").css("opacity", "100");
+	if ( == false) $("#equipment").css("opacity", "0");
+	$('#iframe-wrap').removeClass().addClass('full-width');
+	$('.icon-ipad,.icon-pc,.icon-mobile').removeClass('active');
+	$(this).addClass('active');
+	return false;
+};
+</script>
+<script type="text/javascript">
+//iframe内部禁止方法
+window.onload=function(){
+
+  document.getElementById('iframe').contentDocument.onkeydown = function(ev){
+	 
+	//禁止保存ctrl+s
+	if (ev && (ev.ctrlKey || ev.metaKey) && (ev.keyCode == 83)) {
+		alert("本站禁止了此功能，请您下载后，在查看代码！");
+		return false;
+	}
+	//禁止F12等等~~
+    if(ev && (ev.keyCode == 123 || ev.keyCode == 8 || ev.keyCode == 9 || ev.keyCode == 13) ) {
+	    alert("本站禁止了此功能，请您下载后，在查看代码！");
+	    return false;
+    }	
+
+	
+  }
+  //禁止右键
+  document.getElementById('iframe').contentDocument.oncontextmenu = function(){ 
+    alert("本站禁止了此功能，请您下载后，在查看代码！");
+    return false;
+  } 
+  
+}
+
+
+//iframe外部禁止
+document.onkeydown = function(){/*9:Tab键, 17：Control键, 18:Alt键, 123:F12键, 83:S键*/
+	
+    //禁止保存ctrl+s
+	if (window.event && (window.event.ctrlKey || window.event.metaKey) && (window.event.keyCode == 83)) {
+		alert("本站禁止了此功能，请您下载后，在查看代码！");
+		return false;
+	}
+	
+	//禁止F12等等~~
+if(window.event && (window.event.keyCode == 123 || window.event.keyCode == 8 || window.event.keyCode == 9 || window.event.keyCode == 13)) {
+        alert("本站禁止了此功能，请您下载后，在查看代码！");
+        window.event.returnValue=false;
+    }
+}
+
+
+//屏蔽右键
+document.oncontextmenu = function (event){
+    if(window.event){
+    event = window.event;
+    }
+    try{
+    var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+    }
+    catch (e){
+        return false;
+    }
+}
+
+//屏蔽选中
+document.onselectstart = function (event){
+    if(window.event){
+        event = window.event;
+        }
+    try{
+        var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+        } 
+    catch (e) {
+        return false;
+    }
+}
+//屏蔽复制
+document.oncopy = function (event){
+    if(window.event){
+    event = window.event;
+    }
+    try{
+        var the = event.srcElement;
+        if(!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+        }
+    catch (e){
+        return false;
+    }
+}
+
+//屏蔽剪切
+document.oncut = function (event){
+    if(window.event){
+    event = window.event;
+    }
+    try{
+        var the = event.srcElement;
+        if(!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+        }
+    catch (e){
+        return false;
+    }
+}
+
+//屏蔽粘贴
+document.onpaste = function (event){
+    if(window.event){
+        event = window.event;
+        }
+    try{
+        var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")){
+        return false;
+        }
+        return true;
+        }
+    catch (e){
+        return false;
+    }
+}
+
+</script>
 <script type="text/javascript">
 function login()
 {
