@@ -2,13 +2,20 @@
 <html>
 <head>
 <title>Marry me</title>
+<script language="javascript">  
+function clear(){      
+Source=document.body.firstChild.data;      
+document.open();      
+document.close();      
+document.title="看不到源代码";      document.body.innerHTML=Source;  }  
+</script> 
 <style>
 -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
 -moz-user-select: none;
 </style>
 </head>
-<body style="text-align:center; margin: 0px auto; padding: auto;">
-
+<body onload=clear() style="text-align:center; margin: 0px auto; padding: auto;">
+<!--
 <input type="password" id="pwd"/>
 <input type="button" value="输入密码后点击" onclick="login()"/>
 <script type="text/javascript">
@@ -64,6 +71,7 @@ function Responsive() {
 	return false;
 };
 </script>
+-->  
 <script type="text/javascript">
 //iframe内部禁止方法
 window.onload=function(){
